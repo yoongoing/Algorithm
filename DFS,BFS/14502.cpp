@@ -27,7 +27,8 @@ void BFS(int y, int x){
 
 				if(범위안에 안들어간다면){
 					continue;
-				}	
+				}
+				if(ny != )	
 				q.push(make_pair(ny,nx));
 			}
 		}		
