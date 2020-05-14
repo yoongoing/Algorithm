@@ -154,7 +154,8 @@ int main(int argc, char const *argv[])
 		}
 	}
 	dfs(0);
-	cout<<result<<endl;
+
+	cout<<ans<<endl;
 
 	return 0;
 }
