@@ -91,6 +91,7 @@ int sol(){
 
             dq.push_back(micro);
         }
+        sort(dq.begin(),dq.end(),cmp);
         //미생물 합쳐주기
         for(int i=0; i<size; i++){
             int y = dq.front().y;
