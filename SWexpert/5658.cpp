@@ -27,19 +27,16 @@ string sol(string str, int n, int k){
 			j += side;
 		}
 
-
 		char temp = str[n-1];
 		char prev = str[0];
 		for(j=1; j<n; j++){
 			int curr = str[j];
 			str[j] = prev;
 			prev = curr;
-
-			
 		}
 		str[0] = temp;
-
 	}
+	
 	int size = words.size();
 	int cnt = 1;
 	for(auto it = words.begin(); it != words.end(); it++){

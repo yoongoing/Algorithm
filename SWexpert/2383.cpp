@@ -11,7 +11,7 @@ int map[10][10];
 int p_map[10][10];  //현재 계단에 몇명의 사람이 있는지
 int p_loc[10];      //사람별로 어떤 계단을 내려갈지 
 
-int ptos[10];     //사람별로 계단1에 가기위한 최소 시간
+int ptos[10];     //사람별로 계단에 가기위한 최소 시간
 
 int ans = 987654321;
 
@@ -68,23 +68,33 @@ int cal(){
         }
         time++;
     }
-    return time+1; 
+    return time + 1; 
 }
-
 void dfs(int cnt){
     if(cnt == p_size){
-        ans = min(ans, cal());
+        ans = min(ans,cal());
         return;
     }
-
-    p_loc[cnt] = 0;
-    dfs(cnt+1);
-
-    p_loc[cnt] = 1;
-    dfs(cnt+1);
-    
-    return;
+    for(int i=0; i<2; i++){
+        p_loc[cnt] = i;
+        dfs(cnt+1);
+    }
 }
+
+// void dfs(int cnt){
+//     if(cnt == p_size){
+//         ans = min(ans, cal());
+//         return;
+//     }
+
+//     p_loc[cnt] = 0;
+//     dfs(cnt+1);
+
+//     p_loc[cnt] = 1;
+//     dfs(cnt+1);
+    
+//     return;
+// }
 
 int main(){
     int test_case;
