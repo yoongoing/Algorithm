@@ -14,7 +14,7 @@ int main(void){
         cin>>num[i];
 
     int pt1, pt2;
-    pt1 = 0;
+    pt1 = 0;ㄴ
     pt2 = 0;
     int len = 987654321;
     int sum = num[0];
