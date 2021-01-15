@@ -10,6 +10,7 @@ struct Tree{
     long *tree;
     long tree_size;
 
+    // 트리의 노드갯수 설정
     Tree(int N){
         int height = (int)ceil(log2(N));
         tree_size = 1 << (height + 1);
@@ -17,6 +18,7 @@ struct Tree{
     }
 
     void update(int node, int left, int right, int index, int diff){
+    
         //index가 범위안에 있을때만
         if(left<=index && index<=right){
 
