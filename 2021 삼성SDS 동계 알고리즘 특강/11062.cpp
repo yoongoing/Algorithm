@@ -10,6 +10,13 @@ int card[1010];
 
 int k_play(int s, int e){
     // play
+    if(s == e)
+        return card[s];
+
+    // 가장 왼쪽을 가져가거나
+    card[s], m_play(s+1,e);
+    // 가장 오른쪽을 가져감
+    card[e], m_play(s, e-1);
 }
 
 int m_play(int s, int e){
