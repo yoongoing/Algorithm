@@ -8,8 +8,6 @@ int binary[7] = {1, 2, 4, 8, 16, 32, 64};
 int A[65][65];
 int L[1001];
 int visited[65][65] = {0,};
-int dy[4] = {0, 1, -1, 0};
-int dx[4] = {1, 0, 0, -1};
 
 int check(int y, int x){
     return y>=0 && x>=0 && y<binary[N] && x<binary[N];
