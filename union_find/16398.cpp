@@ -16,7 +16,6 @@ struct cmp{
 
 int N;
 int root[1010];
-int planet[1010][1010];
 priority_queue<Info, vector<Info>, cmp> pq;
 
 int find(int n){
@@ -43,11 +42,12 @@ int compare(int a, int b){
     return 0;
 }
 
-int sol(int sum){
+long long sol(long long sum){
     while(!pq.empty()){
+        
         int from = pq.top().from;
         int to = pq.top().to;
-        int cost = pq.top().cost;
+        long long cost = pq.top().cost;
 
         if(!compare(from, to)){
             sum += cost;
@@ -68,10 +68,11 @@ int main(void){
         root[i] = i;
     for(int i=1; i<=N; i++){
         for(int j=1; j<=N; j++){
-            cin>>planet[i][j];
+            long long cost;
+            cin>>cost;
 
             if(i < j){
-                Info tmp = {i, j, planet[i][j]};
+                Info tmp = {i, j, cost};
                 pq.push(tmp);
             }
         }
