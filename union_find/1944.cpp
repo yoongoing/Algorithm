@@ -69,7 +69,6 @@ int bfs(int y, int x, int from){
         x = q.front().second;
         q.pop();
 
-        // cout<<"(y, x) = ("<<y<<","<<x<<")\n";
         for(int i=0; i<4;i++){
             int ny = y + dy[i];
             int nx = x + dx[i];
@@ -85,8 +84,10 @@ int bfs(int y, int x, int from){
                     pq.push(tmp);
                 }
                 
+                // 자신을 제외한 열쇠의 최단거리 기록
                 if(cnt == key.size())
                     return cnt;
+
                 q.push(make_pair(ny, nx));
             }
         }
@@ -99,8 +100,6 @@ int main(void){
     cin.tie(0);
 
     cin>>N>>M;
-    
-    
     
     int num = 0;
     for(int i=0; i<N; i++){
@@ -117,29 +116,26 @@ int main(void){
             }
         }   
     }
-    // cout<<"key size: "<<key.size()<<"\n";
+
     for(int i=0; i<key.size(); i++){
-        // cout<<key[i].first<<" "<<key[i].second<<"\n";
         int kn = bfs(key[i].first, key[i].second, key_num[key[i].first][key[i].second]);
 
+        // 길이 끊겨있다면 == 열쇠를 모두 주울수 없다면
         if(kn != key.size()){
             cout<<"-1\n";
             return 0;
         }       
     }
     
-    for(int i=0; i<=key.size(); ++i){
+    for(int i=1; i<=key.size(); i++)
         root[i] = i;
-    }
 
     int ans = 0;
     while(!pq.empty()){
         int from = pq.top().from;
         int to = pq.top().to;
         int dist = pq.top().dist;
-        // cout<<"from : "<<from<<"\n";
-        // cout<<"to : "<<to<<"\n";
-        // cout<<"dist : "<<dist<<"\n\n";
+
         if(!compare(from, to)){
             Union(from, to);
             ans += dist;
