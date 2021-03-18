@@ -24,7 +24,6 @@ void move(){
 
     for(int r=1; r<=N; r++){
         for(int c=1; c<=N; c++){
-            vector<Magic> temp;
             // 모든 파이어볼이
             for(int i=0; i<v[r][c].size(); i++){
                 int m = v[r][c][i].m;
@@ -39,17 +38,15 @@ void move(){
                     tv[nr][nc].push_back(v[r][c][i]);
                 }
                 else{
-                    if(nr < 1)   nr = N - abs(nr) % N;
                     if(nr > N)   nr = nr%N;
-                    if(nc < 1)   nc = N - abs(nc) % N;
+                    if(nr < 1)   nr = N - abs(nr) % N;
                     if(nc > N)   nc = nc%N;
+                    if(nc < 1)   nc = N - abs(nc) % N;
                     
                     tv[nr][nc].push_back(v[r][c][i]);
-                    temp.push_back(v[r][c][i]);
                 }
             }
             v[r][c].clear();
-            v[r][c] = temp;
         }       
     }
 
