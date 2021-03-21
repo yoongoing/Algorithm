@@ -41,7 +41,6 @@ int main(void){
     }
 
     init();
-    cout<<alpha<<"\n";
 
     for(int i=0; i<M; i++){
         int o;
