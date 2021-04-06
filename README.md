@@ -21,7 +21,7 @@
     - [Graph](https://github.com/yoongoing/Algorithm/tree/master/BOJ/Graph)
     - [LIS](https://github.com/yoongoing/Algorithm/tree/master/BOJ/LIS)
     - [Math](https://github.com/yoongoing/Algorithm/tree/master/BOJ/Math)
-    - [Segmentree](https://github.com/yoongoing/Algorithm/tree/master/BOJ/segmenttree)
+    - [Segment Tree](https://github.com/yoongoing/Algorithm/tree/master/BOJ/Segment%20Tree)
     - [Sort](https://github.com/yoongoing/Algorithm/tree/master/BOJ/Sort)
     - [String](https://github.com/yoongoing/Algorithm/tree/master/BOJ/String)
     - [Union_find](https://github.com/yoongoing/Algorithm/tree/master/BOJ/Union%20Find)
