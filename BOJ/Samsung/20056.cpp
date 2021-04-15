@@ -143,3 +143,138 @@ int main(void){
     cout<<sol(0)<<"\n";
     return 0;
 }
+
+/*
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+struct Ball{
+    int m,s,d;
+}; 
+
+int N,M,K;
+vector<Ball> map[52][52];
+
+int dr[8] = {-1,-1,0,1,1,1,0,-1};
+int dc[8] = {0,1,1,1,0,-1,-1,-1};
+
+void move(){
+    vector<Ball> temp[52][52];
+    for(int r=1; r<=N; r++){
+        for(int c=1; c<=N; c++){
+
+            for(int k=0; k<map[r][c].size(); k++){
+                int m = map[r][c][k].m;
+                int speed = map[r][c][k].s;
+                int dir = map[r][c][k].d;
+
+                // 자신의 방향 d로 속력 s칸 만큼 이동
+                int nr = r + dr[dir] * speed;
+                int nc = c + dc[dir] * speed;
+
+                if(nr > N)  nr %= N;
+                if(nr < 1)  nr = N - ((-1 * nr) % N);
+                if(nc > N)  nc %= N;
+                if(nc < 1)  nc = N - ((-1 * nc) % N);
+                // cout<<r<<", "<<c<<" to "<<nr<<", "<<nc<<"\n";
+                
+                temp[nr][nc].push_back(map[r][c][k]);
+            }
+            map[r][c].clear();
+        }
+    }
+    for(int r=1; r<=N; r++)
+        for(int c=1; c<=N; c++)
+            map[r][c] = temp[r][c];
+}
+
+void work(){
+    for(int r=1; r<=N; r++){
+        for(int c=1; c<=N; c++){
+
+            // 2개 이상의 파이어볼이 있는 칸에서만
+            if(map[r][c].size() > 1){
+                int size = map[r][c].size();
+
+                int next_m = 0;
+                int next_s = 0;
+                int next_dir = 0;
+
+                for(int k=0; k<size; k++){
+                    next_m += map[r][c][k].m;
+                    next_s += map[r][c][k].s;
+                    next_dir += (map[r][c][k].d % 2);
+                }
+                map[r][c].clear();
+
+                // 질량은 ⌊(합쳐진 파이어볼 질량의 합)/5⌋
+                next_m /= 5;
+
+                // 질량이 0인 파이어볼은 소멸
+                if(next_m == 0)
+                    continue;
+
+                // 속력은 ⌊(합쳐진 파이어볼 속력의 합)/(합쳐진 파이어볼의 개수)⌋
+                next_s /= size;
+
+                int dir[4];
+                // 합쳐지는 파이어볼의 방향이 모두 홀수이거나 모두 짝수이면
+                if(next_dir==0 || next_dir==size){
+                    dir[0] = 0;
+                    dir[1] = 2;
+                    dir[2] = 4;
+                    dir[3] = 6;
+                }
+                else{
+                    dir[0] = 1;
+                    dir[1] = 3;
+                    dir[2] = 5;
+                    dir[3] = 7;
+                }
+
+                for(int k=0; k<4; k++){
+                    Ball B = {next_m, next_s, dir[k]};
+                    map[r][c].push_back(B);
+                }
+            }
+        }
+    }
+}
+
+int count(int sum){
+    for(int r=1; r<=N; r++)
+        for(int c=1; c<=N; c++)        
+            for(int k=0; k<map[r][c].size(); k++)
+                sum += map[r][c][k].m;
+    return sum;
+}
+
+int sol(){
+    for(int step=0; step<K; step++){
+        // 1
+        move();
+
+        // 2
+        work();
+    }
+    return count(0);
+}
+
+int main(void){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    cin>>N>>M>>K;
+    for(int i=0; i<M; i++){
+        int r, c, m, s, d;
+        cin>>r>>c>>m>>s>>d;
+        
+        Ball B = {m, s, d};
+        map[r][c].push_back(B);
+    }
+
+    cout<<sol()<<"\n";
+}
+*/
