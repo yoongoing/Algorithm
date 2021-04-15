@@ -76,3 +76,93 @@ int main(void){
     }
     return 0;
 }
+
+/*
+#include <iostream>
+
+using namespace std;
+
+int N,K;
+int convey[202] = {0,};
+int robot[101] = {0,};
+
+int count(int cnt){
+    for(int i=1; i<=2*N; i++)
+        if(convey[i] == 0)
+            cnt++;
+    return cnt;
+}
+
+void rshift(){
+    for(int i=N; i>=1; i--){
+        // 내구도가 있고, 로봇이 없으면 움직일 수 있다.
+        if(convey[i]>0 && robot[i]==0){
+            // cout<<i<<" "<<i-1<<"\n";
+            robot[i] = robot[i-1];
+            robot[i-1] = 0;
+            if(robot[i])
+                convey[i]--;
+            
+        }
+
+        if(i==N && robot[i])
+            robot[i] = 0;
+    }
+
+}
+
+void shift(){
+    int ctemp = convey[2*N];
+
+    for(int i=2*N; i>=1; i--){
+        convey[i] = convey[i-1];
+    }
+    convey[1] = ctemp;
+
+    for(int i=N; i>=1; i--){
+        robot[i] = robot[i-1];
+        
+        if(i==N && robot[i])
+            robot[i] = 0;
+    }
+
+}
+
+int sol(){
+    int step = 1;
+
+    while(1){
+        // 1
+        shift();
+
+        // 2
+        rshift();
+
+        // 3
+        if(!robot[1] && convey[1]>0){
+            robot[1] = 1;
+            convey[1]--;
+        }
+
+        // 4
+        if(count(0) >= K)
+            break;
+        
+        step++;
+    }
+
+    return step;
+}
+
+
+int main(void){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
+    cin>>N>>K;
+    for(int i=1; i<=2*N; i++){
+        cin>>convey[i];
+    }
+    cout<<sol()<<"\n";
+}
+*/
