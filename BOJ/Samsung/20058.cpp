@@ -8,6 +8,8 @@ int binary[7] = {1, 2, 4, 8, 16, 32, 64};
 int A[65][65];
 int L[1001];
 int visited[65][65] = {0,};
+int dy[4] = {-1,1,0,0};
+int dx[4] = {0,0,-1,1};
 
 int check(int y, int x){
     return y>=0 && x>=0 && y<binary[N] && x<binary[N];
@@ -29,14 +31,11 @@ int sum(int s){
 }
 
 void shift(int n){
-    int idx = 0;
     int temp[65][65];
-    int term = binary[n - 1];
 
     // 2^n x 2^n
     for(int i=0; i<binary[N]; i+=binary[n]){
         for(int j=0; j<binary[N]; j+=binary[n]){
-            int dir = 0;
             
             for(int y=0; y<binary[n]; y++){
                 for(int x=0; x<binary[n]; x++){
