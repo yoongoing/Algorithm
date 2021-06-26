@@ -4,18 +4,17 @@
 
 using namespace std;
 
-int N;
-
 int main(void){
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    cin>>N;
-    for(int i=0; i<N; i++){
-        int M;
-        cin>>M;
+    int test;
+    cin>>test;
+    for(int i=0; i<test; i++){
+        int F;
+        cin>>F;
 
-        for(int i=0; i<M; i++){
+        for(int i=0; i<F; i++){
             string str;
             cin>>str;
             
