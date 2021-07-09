@@ -19,7 +19,7 @@ int main(void){
     long sum = A[p1];
     int cnt = 0;
     while(p1<=p2 && p2<N){
-        cout<<p1<<" ~ "<<p2<<": "<<sum<<"\n";
+        // cout<<p1<<" ~ "<<p2<<": "<<sum<<"\n";
 
         if(sum<M)
             sum += A[++p2];
