@@ -7,8 +7,8 @@
 
 ## Language
 
-- C++17
-- C
+- C++17 / C
+- JAVA
 - Python3
 
 ## Table of Content
